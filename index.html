@@ -1,0 +1,166 @@
+<HTML>
+<HEAD>
+<SCRIPT TYPE="text/javascript">
+
+function roll6() {
+ return Math.floor(Math.random() * 6 + 1);
+ }
+
+function threesixes() {
+ return roll6() + roll6() + roll6();
+ }
+
+function threeoffoursixes() {
+ num1 = roll6();
+ num2 = roll6();
+ num3 = roll6();
+ num4 = roll6();
+ return num1 + num2 + num3 + num4 - Math.min(num1, num2, num3, num4);
+ }
+
+function disablerace() {
+ var race = document.forms[0][10];
+ 
+ // Disable Human
+ if(1<0){
+  race[0].disabled.true;
+  }
+ // Disable Dwarf
+ if(document.getElementById('str').value < 15){
+  race[1].disabled = true;
+  }
+ // Disable Elf
+ if(1<0){
+  race[2].disabled = true;
+  }
+ // Disable Halfling
+ if(1<0){
+  race[3].disabled = true;
+  }
+ // Disable Half-Elf
+ if(1<0){
+  race[4].disabled = true;
+  }
+ // Disable Half-Orc
+ if(1<0){
+  race[5].disabled = true;
+  }
+ } // END OF DISABLERACE
+
+function disableclass() {
+ var cclass = document.getElementsByName('cclass');
+
+ // Disable Fighter
+ if(document.getElementById('str').value < 9 || document.getElementById('int') > 15){
+  cclass[0][0].disabled = true;
+  }
+ // Disable Ranger
+ if(1<0){
+  cclass[0][1].disabled = true;
+  }
+ // Disable Paladin
+ if(1<0){
+  cclass[0][1].disabled = true;
+  }
+ // Disable Cleric
+ if(1<0){
+  cclass[0][2].disabled = true;
+  }
+ // Disable Druid
+ if(1<0){
+  cclass[0][3].disabled = true;
+  }
+ // Disable Magic-User
+ if(1<0){
+  cclass[0][4].disabled = true;
+  }
+ // Disable Illusionist
+ if(1<0){
+  cclass[0][5].disabled = true;
+  }
+ // Disable Thief
+ if(1<0){
+  cclass[0][6].disabled = true;
+  }
+ // Disable Assassin
+ if(1<0){
+  cclass[0][7].disabled = true;
+  }
+ // Disable Monk
+  if(1<0){
+  cclass[0][8].disabled = true;
+  }
+ } // END OF DISABLECLASS
+
+function rollup() {
+ var method = document.forms[0];
+
+ if(method[0].checked) {
+  document.getElementById('str').value = threesixes();
+  document.getElementById('int').value = threesixes();
+  document.getElementById('wis').value = threesixes();
+  document.getElementById('dex').value = threesixes();
+  document.getElementById('con').value = threesixes();
+  document.getElementById('chr').value = threesixes();
+  }
+ else if(method[1].checked) {
+  document.getElementById('str').value = threeoffoursixes();
+  document.getElementById('int').value = threeoffoursixes();
+  document.getElementById('wis').value = threeoffoursixes();
+  document.getElementById('dex').value = threeoffoursixes();
+  document.getElementById('con').value = threeoffoursixes();
+  document.getElementById('chr').value = threeoffoursixes();
+  }
+ else {
+  alert("Nothing checked!");
+  }
+
+ disablerace();
+ disableclass();
+ } // END OF ROLLUP
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM>
+<input type="radio" name="m" value="3" onclick="this.checked = true"> Roll 3<br />
+<input type="radio" name="m" value="best" onclick="this.checked = true"> Best 3 of 4<br />
+
+<button type="button" onclick="rollup()">Roll</button>
+<hr />
+Name: <input type="text" size="25" /><br /><br />
+
+Str:  <input type="text" size="8" id="str" /><br />
+Int:  <input type="text" size="8" id="int" /><br />
+Wis:  <input type="text" size="8" id="wis" /><br />
+Dex:  <input type="text" size="8" id="dex" /><br />
+Con:  <input type="text" size="8" id="con" /><br />
+Chr:  <input type="text" size="8" id="chr" /><br />
+<br />
+<select name="race">
+ <option value="Human">Human</option>
+ <option value="Dwarf">Dwarf</option>
+ <option value="Elf">Elf</option>
+ <option value="Halfling">Halfling</option>
+ <option value="Half-Elf">Half-Elf</option>
+ <option value="Half-Orc">Half-Orc</option>
+</select>
+
+<select name="cclass">
+ <option value="Fighter">Fighter</option>
+ <option value="Ranger">-Ranger</option>
+ <option value="Paladin">-Paladin</option>
+ <option value="Cleric">Cleric</option>
+ <option value="Druid">-Druid</option>
+ <option value="Magic-User">Magic-User</option>
+ <option value="Illusionist">-Illusionist</option>
+ <option value="Thief">Thief</option>
+ <option value="Assassin">-Assassin</option>
+ <option value="Monk">Monk</option>
+</select>
+
+</FORM>
+
+</BODY>
+</HTML>
